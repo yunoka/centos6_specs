@@ -2,15 +2,22 @@ This file is UTF-8 Encoding document.
 
 English:
 1. This SPEC files for CentOS6 or Rhel6.
-2. Depends on EPEL.http://dl.fedoraproject.org/pub/epel/6/x86_64/repoview/ http://dl.fedoraproject.org/pub/epel/6/i386/repoview/
+2. Depends on EPEL.
+   http://dl.fedoraproject.org/pub/epel/6/x86_64/repoview/
+   http://dl.fedoraproject.org/pub/epel/6/i386/repoview/
 3. AS IS - NO WARRANTY. 
 4. Please contact me if you need me. http://twitter.com/yunoka/
 
 Japanese:
 1. このSPECファイル群は、CentOS6/RHEL6 にあわせて作られています。
-2. EPELリポジトリ http://dl.fedoraproject.org/pub/epel/6/x86_64/repoview/ http://dl.fedoraproject.org/pub/epel/6/i386/repoview/ が
-　 使えること前提に作られています。他のリポジトリとは衝突するかもしれません。
+2. EPELリポジトリ 
+   http://dl.fedoraproject.org/pub/epel/6/x86_64/repoview/
+   http://dl.fedoraproject.org/pub/epel/6/i386/repoview/
+   が使えること前提に作られています。他のリポジトリとは衝突するかもしれません。
 3. 一切無保証です。各所より持ってきているもの。それを調整しているものが多いです。
 4. 動作報告などいただけると喜びます。
 5. 連絡先 :Yunoka http://twitter.com/yunoka/
+
+
+Yunoka - http://twitter.com/yunoka/
 
