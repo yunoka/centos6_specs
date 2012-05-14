@@ -1,12 +1,8 @@
 # Enable Lua extention.
-%{?enable_lua:%define ENABLE_LUA 1}
-%{!?enable_lua:%define ENABLE_LUA 0}
+%define ENABLE_LUA 1
 
 # Disable system-specific event.
-%{?disable_event:%define DISABLE_EVENT 1}
-%{!?disable_event:%define DISABLE_EVENT 0}
-
-
+%define DISABLE_EVENT 0
 
 Summary:        A persistent cache server
 Name:           kyototycoon
@@ -18,9 +14,10 @@ URL:            http://fallabs.com/kyototycoon/
 Source:         http://fallabs.com/kyototycoon/pkg/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires:       kyotocabinet
+Requires:       lua
 BuildRequires:  kernel-devel >= 2.6.17
 BuildRequires:  kernel >= 2.6.17
-BuildRequires:  kyotocabinet-devel
+BuildRequires:  kyotocabinet-devel,lua-devel
 BuildRequires:  pkgconfig, zlib-devel, autoconf, automake
 
 %description
@@ -64,6 +61,7 @@ make DESTDIR=%{buildroot} install
 
 rm -rf %{buildroot}%{_datadir}/%{name}
 rm -rf %{buildroot}%{_libdir}/lib%{name}.a
+rm -rf %{buildroot}%{_defaultdocdir}/%{name}
 
 # Install And Setup Scripts.
 %{__cat} > ./ktservctl.head << 'EOF'
@@ -85,7 +83,7 @@ EOF
 
 %{__install} -Dp -m0755 %{buildroot}%{_bindir}/ktservctl %{buildroot}%{_initrddir}/ktservctl
 
-%check
+#%check
 make check
 
 %clean
@@ -109,9 +107,8 @@ rm -rf %{buildroot}
 %files
 %defattr(-, root, root, -)
 %config(noreplace) %{_initrddir}/ktservctl
-/usr/libexec/ktplugdbvoid.so
-/usr/libexec/ktplugservmemc.so
-#%doc COPYING ChangeLog README
+%{_libexecdir}/*.so
+%doc COPYING ChangeLog kyototycoon.idl
 %{_bindir}/kt*
 %{_libdir}/libkyototycoon.so.*
 %{_mandir}/man1/kt*.gz
@@ -126,6 +123,12 @@ rm -rf %{buildroot}
 
 
 %changelog
+* Sun May 13 2012 Yunoka Minazuki <yuno@yuno.net>
+- For CentOS/RHEL 6 fix
+- Add docs.
+- Add Lua-extension
+- Add lib-event
+
 * Tue May 08 2012 Keisuke Kawahara <kyohsuke@conafie.jp>
 - bump up  0.9.55.
 
