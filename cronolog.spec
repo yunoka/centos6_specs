@@ -1,6 +1,3 @@
-# $Id: cronolog.spec 7981 2009-11-03 03:05:34Z dag $
-# Authority: dag
-
 Summary: Log file rotator
 Name: cronolog
 Version: 1.7.0
