@@ -1,6 +1,3 @@
-# $Id$
-# Authority: dag
-
 Summary: FUSE filesystem using Amazon Simple Storage Service as storage
 Name: fuse-s3fs
 Version: 1.61
