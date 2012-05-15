@@ -83,8 +83,8 @@ EOF
 
 %{__install} -Dp -m0755 %{buildroot}%{_bindir}/ktservctl %{buildroot}%{_sysconfdir}/rc.d/init.d/ktservctl
 
-#%check
-#make check
+%check
+make check
 
 %clean
 rm -rf %{buildroot}
