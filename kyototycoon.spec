@@ -81,10 +81,10 @@ rm -rf %{buildroot}%{_defaultdocdir}/%{name}
 EOF
 %{__cat} ./ktservctl.head ./lab/ktservctl > %{buildroot}%{_bindir}/ktservctl
 
-%{__install} -Dp -m0755 %{buildroot}%{_bindir}/ktservctl %{buildroot}%{_initrddir}/ktservctl
+%{__install} -Dp -m0755 %{buildroot}%{_bindir}/ktservctl %{buildroot}%{_sysconfdir}/rc.d/init.d/ktservctl
 
 #%check
-make check
+#make check
 
 %clean
 rm -rf %{buildroot}
